@@ -1,10 +1,10 @@
 import random
 import time
 
+
 board = [[1,2 ,3],
          [4,'X',6],
          [7,8,9]]
-
 
 
 def display_board(board):
@@ -19,23 +19,22 @@ def display_board(board):
         print(line2)
     print(line1)
 
-# display_board(board)
 
 def enter_move(board):
     while True:
 
         try:
             time.sleep(1)
-            u = int(input("\nColoca tu ficha, humano: "))
+            u = int(input("\nPlace your move, human: "))
             time.sleep(1)
-            print("\nElegiste: ", u)
+            print("\nYou chose: ", u)
             
 
             if u<=0 or u>=10:
                 time.sleep(1)
-                print("\nDebes ingresar un numero entre 1 y 9")
+                print("\nYou must enter a number between 1 and 9")
                 time.sleep(1)
-                print("\nIntenta otra vez. \n")
+                print("\nTry again. \n")
                 continue
 
 
@@ -45,35 +44,33 @@ def enter_move(board):
 
             if board[fila][colum] == "O" or board[fila][colum] == "X":
                  time.sleep(1)
-                 print("\nFicha actual: ",board[fila][colum])
+                 print("\nCurrent value: ",board[fila][colum])
                  time.sleep(1)
-                 print("\nDebes elegir una casilla que no este ocupada")
+                 print("\nYou must choose an empty square")
                  time.sleep(1)
-                 print("\nIntentalo de nuevo")
+                 print("\nTry again")
                  time.sleep(1)
                  continue
 
             else:
                 time.sleep(1)
-                print("\nCasilla: ", "[" ,fila, "]", "[" ,colum, "]")
+                print("\nPosition: ", "[" ,fila, "]", "[" ,colum, "]")
                 board[fila][colum] = "O"
                 time.sleep(1)
-                print("\nFicha colocada: ", board[fila][colum])
+                print("\nMove placed: ", board[fila][colum])
                 time.sleep(1)
                 break
     
         except ValueError:
-            print("\nSolo se permite ingresar números enteros.")
+            print("\nOnly integer numbers are allowed.")
             continue
     
         except:
-            print("\nAlgo salio mal, intenta de nuevo.")
+            print("\nSomething went wrong, try again.")
             continue
     
     display_board(board)
 
-
-#enter_move(board)
 
 def make_list_of_free_fields(board):
 
@@ -86,9 +83,6 @@ def make_list_of_free_fields(board):
     
 
     return free
-            
-
-# make_list_of_free_fields(board)
 
 
 def victory_for(board, sign):
@@ -120,7 +114,6 @@ def victory_for(board, sign):
     else:
         return False
 
-#print(victory_for(board, "X"))
 
 def draw_move(board):
 
@@ -132,13 +125,14 @@ def draw_move(board):
 
     board[i][j] = "X"
 
-#draw_move(board)
 
 def loading_points():
         
         for _ in range(3):
             print(".", end="", flush=True)
             time.sleep(1)
+        print("\n")
+
 
 def ai_thinking():
         
@@ -148,8 +142,6 @@ def ai_thinking():
             print(".", end="", flush=True)
             time.sleep(1)
         print("\n")
-
-
 
 
 def play_game(board):
@@ -194,7 +186,3 @@ def play_game(board):
 
 
 play_game(board)
-
-
-
-   
